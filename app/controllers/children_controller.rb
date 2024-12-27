@@ -28,15 +28,16 @@ class ChildrenController < ApplicationController
 
   def update
     @child = Child.find_by(id: params[:id])
-    @child.parent_id = params[:parent_id] || @child.parent_id,
-    @child.name = params[:name] || @child.name,
-    @child.username = params[:username] || @child.username,
-    @child.birthdate = params[:birthdate] || @child.birthdate,
-    @child.points_available = params[:points_available] || @child.points_available,
-    if @child.save
-      render :show
+    if @child
+      @child.assign_attributes(params.permit(:parent_id, :name, :username, :birthdate, :points_available).compact_blank)
+  
+      if @child.save
+        render :show
+      else
+        render json: { error: @child.errors.full_messages }, status: :unprocessable_entity
+      end
     else
-      render json: {error: @child.errors.full_messages}, status: :unprocessable_entity
+      render json: { error: "Child not found" }, status: :not_found
     end
   end
 end
