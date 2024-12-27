@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post "/children" => "children#create"
   get "/children" => "children#index"
   get "/children/:id" => "children#show"
+  patch "/children/:id" => "children#update"
 
   post "/sessions" => "sessions#create"
 end

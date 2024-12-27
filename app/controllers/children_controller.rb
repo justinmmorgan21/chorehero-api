@@ -25,4 +25,18 @@ class ChildrenController < ApplicationController
     @child = Child.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @child = Child.find_by(id: params[:id])
+    @child.parent_id = params[:parent_id] || @child.parent_id,
+    @child.name = params[:name] || @child.name,
+    @child.username = params[:username] || @child.username,
+    @child.birthdate = params[:birthdate] || @child.birthdate,
+    @child.points_available = params[:points_available] || @child.points_available,
+    if @child.save
+      render :show
+    else
+      render json: {error: @child.errors.full_messages}, status: :unprocessable_entity
+    end
+  end
 end
