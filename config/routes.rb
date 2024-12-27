@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   # root "posts#index"
   
   post "/parents" => "parents#create"
+  get "/parents" => "parents#index"
+  get "/parents/:id" => "parents#show"
 
   post "/children" => "children#create"
+  get "/children" => "children#index"
+  get "/children/:id" => "children#show"
 
   post "/sessions" => "sessions#create"
 end

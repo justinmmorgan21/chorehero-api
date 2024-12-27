@@ -12,4 +12,14 @@ class ParentsController < ApplicationController
       render json: { errors: parent.errors.full_messages }, status: :bad_request
     end
   end
+
+  def index
+    @parents = Parent.all
+    render :index
+  end
+
+  def show
+    @parent = Parent.find_by(id: params[:id])
+    render :show
+  end
 end

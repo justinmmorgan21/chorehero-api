@@ -12,7 +12,17 @@ class ChildrenController < ApplicationController
     if @child.save
       render :show, status: :created
     else
-      render json: { errors: child.errors.full_messages }, status: :bad_request
+      render json: { errors: @child.errors.full_messages }, status: :bad_request
     end
+  end
+
+  def index
+    @children = Child.all
+    render :index
+  end
+
+  def show
+    @child = Child.find_by(id: params[:id])
+    render :show
   end
 end
