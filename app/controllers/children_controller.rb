@@ -1,6 +1,7 @@
 class ChildrenController < ApplicationController
   def create
-    child = Child.new(
+    @child = Child.new(
+      parent_id: params[:parent_id],
       name: params[:name],
       username: params[:username],
       password: params[:password],
@@ -8,10 +9,10 @@ class ChildrenController < ApplicationController
       birthdate: params[:birthdate],
       points_available: params[:points_available],
     )
-    if child.save
-      render json: { message: "Child created successfully" }, status: :created
+    if @child.save
+      render :show, status: :created
     else
-      render json: { errors: parent.errors.full_messages }, status: :bad_request
+      render json: { errors: child.errors.full_messages }, status: :bad_request
     end
   end
 end
