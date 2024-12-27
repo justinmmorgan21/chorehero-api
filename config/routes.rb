@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   
   post "/parents" => "parents#create"
+
+  post "/sessions" => "sessions#create"
 end
