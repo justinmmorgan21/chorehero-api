@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_27_025839) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_27_051339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "children", force: :cascade do |t|
+    t.integer "parent_id"
+    t.string "name"
+    t.string "username"
+    t.string "password_digest"
+    t.date "birthdate"
+    t.integer "points_available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "parents", force: :cascade do |t|
     t.string "username"
