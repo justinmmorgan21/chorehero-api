@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   
   post "/parents" => "parents#create"
 
+  post "/children" => "children#create"
+
   post "/sessions" => "sessions#create"
 end
