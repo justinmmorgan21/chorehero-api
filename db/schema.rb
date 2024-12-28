@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_27_051339) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_28_170320) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_27_051339) do
     t.string "password_digest"
     t.date "birthdate"
     t.integer "points_available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "money_banked"
+  end
+
+  create_table "chores", force: :cascade do |t|
+    t.integer "parent_id"
+    t.string "title"
+    t.text "description"
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "saturday"
+    t.boolean "sunday"
+    t.boolean "one_timer"
+    t.integer "points_awarded"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
