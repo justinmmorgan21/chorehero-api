@@ -4,4 +4,5 @@ class Parent < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_many :children
+  has_many :chores
 end

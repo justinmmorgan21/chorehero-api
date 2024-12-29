@@ -1,13 +1,15 @@
 class ChildrenController < ApplicationController
   def create
+    parent_user = current_parent_user
     @child = Child.new(
-      parent_id: params[:parent_id],
+      parent_id: parent_user.id,
       name: params[:name],
       username: params[:username],
       password: params[:password],
       password_confirmation: params[:password_confirmation],
       birthdate: params[:birthdate],
-      points_available: params[:points_available],
+      points_available: 0,
+      money_banked: 0
     )
     if @child.save
       render :show, status: :created
@@ -17,8 +19,13 @@ class ChildrenController < ApplicationController
   end
 
   def index
-    @children = Child.all
-    render :index
+    parent_user = current_parent_user
+    if parent_user
+      @children = Child.where(parent_id: parent_user.id)
+      render :index
+    else
+      render json: { error: "no user signed in" }, status: :bad_request
+    end
   end
 
   def show

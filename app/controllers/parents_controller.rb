@@ -9,7 +9,7 @@ class ParentsController < ApplicationController
     if @parent.save
       render :show, status: :created
     else
-      render json: { errors: parent.errors.full_messages }, status: :bad_request
+      render json: { errors: @parent.errors.full_messages }, status: :bad_request
     end
   end
 

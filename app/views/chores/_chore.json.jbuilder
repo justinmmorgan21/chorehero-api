@@ -1,0 +1,13 @@
+json.id chore.id
+json.parent_id chore.parent_id
+json.title chore.title
+json.description chore.description
+json.monday chore.monday
+json.tuesday chore.tuesday
+json.wednesday chore.wednesday
+json.thursday chore.thursday
+json.friday chore.friday
+json.saturday chore.saturday
+json.sunday chore.sunday
+json.one_timer chore.one_timer
+json.points_awarded chore.points_awarded
