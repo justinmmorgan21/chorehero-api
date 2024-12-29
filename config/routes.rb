@@ -17,5 +17,8 @@ Rails.application.routes.draw do
   get "/children/:id" => "children#show"
   patch "/children/:id" => "children#update"
 
+  post "/chores" => "chores#create"
+  get "/chores" => "chores#index"
+
   post "/sessions" => "sessions#create"
 end

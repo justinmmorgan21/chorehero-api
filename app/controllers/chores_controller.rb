@@ -1,7 +1,8 @@
 class ChoresController < ApplicationController
   def create
+    parent_user = current_parent_user
     @chore = Chore.new(
-      parent_id: params[:parent_id],
+      parent_id: parent_user.id,
       title: params[:title],
       description: params[:description],
       monday: params[:monday],
@@ -18,6 +19,16 @@ class ChoresController < ApplicationController
       render :show, status: :created
     else
       render json: { errors: @chore.errors.full_messages }, status: :bad_request
+    end
+  end
+
+  def index
+    parent_user = current_parent_user
+    if parent_user
+      @chores = Chore.where(parent_id: parent_user.id)
+      render :index
+    else
+      render json: { error: "no user signed in" }, status: :bad_request
     end
   end
 end
