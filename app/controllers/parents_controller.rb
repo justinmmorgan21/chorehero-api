@@ -22,4 +22,9 @@ class ParentsController < ApplicationController
     @parent = Parent.find_by(id: params[:id])
     render :show
   end
+
+  def current
+    @parent = Parent.find_by(id: current_parent_user.id)
+    render :show
+  end
 end

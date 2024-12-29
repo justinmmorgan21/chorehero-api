@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   post "/parents" => "parents#create"
   get "/parents" => "parents#index"
+  get "/parents/current" => "parents#current"
   get "/parents/:id" => "parents#show"
 
   post "/children" => "children#create"

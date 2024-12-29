@@ -36,7 +36,7 @@ class ChildrenController < ApplicationController
   def update
     @child = Child.find_by(id: params[:id])
     if @child
-      @child.assign_attributes(params.permit(:parent_id, :name, :username, :birthdate, :points_available).compact_blank)
+      @child.assign_attributes(params.permit(:parent_id, :name, :username, :birthdate, :points_available, :money_banked).compact_blank)
   
       if @child.save
         render :show
