@@ -10,15 +10,78 @@ class Child < ApplicationRecord
   def monday_chores
     childChores = ChildChore.where(child_id: self.id)
     chores = []
-    puts "************"
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
       if chore.monday
         chores << chore
       end
     }
-    puts "************"
-    pp chores
-    puts "************"
+    return chores
+  end
+  def tuesday_chores
+    childChores = ChildChore.where(child_id: self.id)
+    chores = []
+    childChores.each { |childChore|
+      chore = Chore.find_by(id: childChore.chore_id)
+      if chore.tuesday
+        chores << chore
+      end
+    }
+    return chores
+  end
+  def wednesday_chores
+    childChores = ChildChore.where(child_id: self.id)
+    chores = []
+    childChores.each { |childChore|
+      chore = Chore.find_by(id: childChore.chore_id)
+      if chore.wednesday
+        chores << chore
+      end
+    }
+    return chores
+  end
+  def thursday_chores
+    childChores = ChildChore.where(child_id: self.id)
+    chores = []
+    childChores.each { |childChore|
+      chore = Chore.find_by(id: childChore.chore_id)
+      if chore.thursday
+        chores << chore
+      end
+    }
+    return chores
+  end
+  def friday_chores
+    childChores = ChildChore.where(child_id: self.id)
+    chores = []
+    childChores.each { |childChore|
+      chore = Chore.find_by(id: childChore.chore_id)
+      if chore.friday
+        chores << chore
+      end
+    }
+    return chores
+  end
+  def saturday_chores
+    childChores = ChildChore.where(child_id: self.id)
+    chores = []
+    childChores.each { |childChore|
+      chore = Chore.find_by(id: childChore.chore_id)
+      if chore.saturday
+        chores << chore
+      end
+    }
+    return chores
+  end
+  def sunday_chores
+    childChores = ChildChore.where(child_id: self.id)
+    chores = []
+    childChores.each { |childChore|
+      chore = Chore.find_by(id: childChore.chore_id)
+      if chore.sunday
+        chores << chore
+      end
+    }
+    return chores
   end
 end
