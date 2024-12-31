@@ -31,4 +31,19 @@ class ChoresController < ApplicationController
       render json: { error: "no user signed in" }, status: :bad_request
     end
   end
+
+  def update
+    @chore = Chore.find_by(id: params[:id])
+    if @chore
+      @chore.assign_attributes(params.permit(:parent_id, :title, :description, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :one_timer, :points_awarded).compact_blank)
+      
+      if @chore.save
+        render :show
+      else
+        render json: { error: @chore.errors.full_messages }, status: :unprocessable_entity
+      end
+    else
+      render json: { error: "Chore not found" }, status: :not_found
+    end
+  end
 end

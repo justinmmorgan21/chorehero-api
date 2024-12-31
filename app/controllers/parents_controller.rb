@@ -24,7 +24,11 @@ class ParentsController < ApplicationController
   end
 
   def current
-    @parent = Parent.find_by(id: current_parent_user.id)
-    render :show
+    if current_parent_user
+      @parent = Parent.find_by(id: current_parent_user.id)
+      render :show
+    else
+      render json: { errors: "no current parent signed in" }, status: :bad_request
+    end
   end
 end

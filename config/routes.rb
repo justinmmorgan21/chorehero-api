@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   post "/chores" => "chores#create"
   get "/chores" => "chores#index"
+  patch "/chores/:id" => "chores#update"
 
   post "/sessions" => "sessions#create"
 end

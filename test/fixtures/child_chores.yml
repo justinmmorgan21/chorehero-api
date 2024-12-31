@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  child_id: 1
+  chore_id: 1
+  active: false
+  date_activated: 2024-12-30
+  date_inactivated: 2024-12-30
+  done_mon: false
+  done_tue: false
+  done_wed: false
+  done_thu: false
+  done_fri: false
+  done_sat: false
+  done_sun: false
+  done_weekly: false
+
+two:
+  child_id: 1
+  chore_id: 1
+  active: false
+  date_activated: 2024-12-30
+  date_inactivated: 2024-12-30
+  done_mon: false
+  done_tue: false
+  done_wed: false
+  done_thu: false
+  done_fri: false
+  done_sat: false
+  done_sun: false
+  done_weekly: false

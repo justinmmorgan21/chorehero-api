@@ -5,3 +5,5 @@ json.username child.username
 json.birthdate child.birthdate
 json.points_available child.points_available
 json.money_banked child.money_banked
+json.chores child.chores
+json.child_chores child.child_chores
