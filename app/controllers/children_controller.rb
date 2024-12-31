@@ -30,7 +30,6 @@ class ChildrenController < ApplicationController
 
   def show
     @child = Child.find_by(id: params[:id])
-    @child.monday_chores
     render :show
   end
 

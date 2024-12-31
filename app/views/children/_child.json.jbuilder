@@ -3,6 +3,7 @@ json.parent_id child.parent_id
 json.name child.name
 json.username child.username
 json.birthdate child.birthdate
+json.age child.age
 json.points_available child.points_available
 json.money_banked child.money_banked
 json.chores child.chores

@@ -7,6 +7,17 @@ class Child < ApplicationRecord
   has_many :child_chores
   has_many :chores, through: :child_chores
 
+  def age
+    birthdate = self.birthdate
+    today = Time.now
+    child_age = today.year - birthdate.year
+    if birthdate.month > today.month || (birthdate.month == today.month && birthdate.day > today.day)
+      child_age -= 1
+    end
+    puts child_age
+    return child_age
+  end
+
   def monday_chores
     childChores = ChildChore.where(child_id: self.id)
     chores = []

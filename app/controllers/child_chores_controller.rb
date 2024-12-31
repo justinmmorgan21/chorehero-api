@@ -1,8 +1,8 @@
 class ChildChoresController < ApplicationController
   def create
     @childChore = ChildChore.new(
-      child_id: params[:child],
-      chore_id: params[:chore],
+      child_id: params[:child_id],
+      chore_id: params[:chore_id],
       active: true,
       date_activated: Date.current,
       date_inactivated: nil,
