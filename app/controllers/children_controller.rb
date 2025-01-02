@@ -21,7 +21,7 @@ class ChildrenController < ApplicationController
   def index
     parent_user = current_parent_user
     if parent_user
-      @children = Child.where(parent_id: parent_user.id)
+      @children = Child.where(parent_id: parent_user.id).order(birthdate: :asc).order(name: :asc)
       render :index
     else
       render json: { error: "no user signed in" }, status: :bad_request
