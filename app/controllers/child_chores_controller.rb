@@ -31,15 +31,20 @@ class ChildChoresController < ApplicationController
     end
   end
 
-  def update
-    @childChore = ChildChore.find_by(id: params[:id])
-    if @childChore
-      @childChore.assign_attributes(params.permit(:child_id, :chore_id, :active, :date_activated, :date_inactivated, :done_mon, :done_tue, :done_wed, :done_thu, :done_fri, :done_sat, :done_sun, :done_weekly).compact_blank)
+  def show
+    @child_chore = ChildChore.find_by(child_id: params[:child_id], chore_id: params[:chore_id])
+    render :show
+  end
 
-      if @childChore.save
+  def update
+    @child_chore = ChildChore.find_by(child_id: params[:child_id], chore_id: params[:chore_id])
+    if @child_chore
+      @child_chore.assign_attributes(params.permit(:child_id, :chore_id, :active, :date_activated, :date_inactivated, :done_mon, :done_tue, :done_wed, :done_thu, :done_fri, :done_sat, :done_sun, :done_weekly).compact_blank)
+
+      if @child_chore.save!
         render :show
       else
-        render json: { error: @childChore.errors.full_messages }, status: :unprocessable_entity
+        render json: { error: @child_chore.errors.full_messages }, status: :unprocessable_entity
       end
     else
       render json: { error: "ChildChore not found" }, status: :not_found

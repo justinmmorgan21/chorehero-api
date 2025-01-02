@@ -26,5 +26,6 @@ Rails.application.routes.draw do
 
   post "/child_chores" => "child_chores#create"
   get "/child_chores" => "child_chores#index"
-  patch "/child_chores/:id" => "child_chores#update"
+  get "/child_chores/:child_id/:chore_id" => "child_chores#show"
+  patch "/child_chores/:child_id/:chore_id" => "child_chores#update"
 end
