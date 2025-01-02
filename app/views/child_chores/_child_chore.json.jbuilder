@@ -1,0 +1,14 @@
+json.id child_chore.id
+json.child_id child_chore.child_id
+json.chore_id child_chore.chore_id
+json.active child_chore.active
+json.date_activated child_chore.date_activated
+json.date_inactivated child_chore.date_inactivated
+json.done_mon child_chore.done_mon
+json.done_tue child_chore.done_tue
+json.done_wed child_chore.done_wed
+json.done_thu child_chore.done_thu
+json.done_fri child_chore.done_fri
+json.done_sat child_chore.done_sat
+json.done_sun child_chore.done_sun
+json.done_weekly child_chore.done_weekly

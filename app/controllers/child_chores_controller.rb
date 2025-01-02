@@ -21,4 +21,28 @@ class ChildChoresController < ApplicationController
       render json: { errors: @childChore.errors.full_messages }, status: :bad_request
     end
   end
+
+  def index
+    @childChores = ChildChore.all
+    if @childChores
+      render json: @childChores
+    else
+      render json: { errors: @childChores.errors.full_messages }, status: :bad_request
+    end
+  end
+
+  def update
+    @childChore = ChildChore.find_by(id: params[:id])
+    if @childChore
+      @childChore.assign_attributes(params.permit(:child_id, :chore_id, :active, :date_activated, :date_inactivated, :done_mon, :done_tue, :done_wed, :done_thu, :done_fri, :done_sat, :done_sun, :done_weekly).compact_blank)
+
+      if @childChore.save
+        render :show
+      else
+        render json: { error: @childChore.errors.full_messages }, status: :unprocessable_entity
+      end
+    else
+      render json: { error: "ChildChore not found" }, status: :not_found
+    end
+  end
 end

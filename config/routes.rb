@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
 
   post "/child_chores" => "child_chores#create"
+  get "/child_chores" => "child_chores#index"
+  patch "/child_chores/:id" => "child_chores#update"
 end
