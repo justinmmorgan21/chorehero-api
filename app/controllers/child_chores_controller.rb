@@ -23,11 +23,11 @@ class ChildChoresController < ApplicationController
   end
 
   def index
-    @childChores = ChildChore.all
-    if @childChores
-      render json: @childChores
+    @child_chores = ChildChore.all
+    if @child_chores
+      render :index
     else
-      render json: { errors: @childChores.errors.full_messages }, status: :bad_request
+      render json: { errors: @child_chores.errors.full_messages }, status: :bad_request
     end
   end
 
