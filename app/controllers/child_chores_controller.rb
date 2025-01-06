@@ -41,6 +41,8 @@ class ChildChoresController < ApplicationController
     if @child_chore
       @child_chore.assign_attributes(params.permit(:child_id, :chore_id, :active, :date_activated, :date_inactivated, :done_mon, :done_tue, :done_wed, :done_thu, :done_fri, :done_sat, :done_sun, :done_weekly).compact_blank)
 
+      @child_chore[:done_weekly] = @child_chore.doneWeekly
+
       if @child_chore.save!
         render :show
       else

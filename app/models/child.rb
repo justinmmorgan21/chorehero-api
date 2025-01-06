@@ -95,4 +95,16 @@ class Child < ApplicationRecord
     }
     return chores
   end
+
+  def chores_done_weekly
+    childChores = ChildChore.where(child_id: self.id)
+    chores = []
+    childChores.each { |childChore|
+      chore = Chore.find_by(id: childChore.chore_id)
+      if childChore.done_weekly
+        chores << chore
+      end
+    }
+    return chores
+  end
 end
