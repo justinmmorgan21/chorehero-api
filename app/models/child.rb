@@ -27,7 +27,7 @@ class Child < ApplicationRecord
         chores << chore
       end
     }
-    return chores
+    return chores.sort_by(&:title)
   end
   def tuesday_chores
     childChores = ChildChore.where(child_id: self.id)
@@ -38,7 +38,7 @@ class Child < ApplicationRecord
         chores << chore
       end
     }
-    return chores
+    return chores.sort_by(&:title)
   end
   def wednesday_chores
     childChores = ChildChore.where(child_id: self.id)
@@ -49,7 +49,7 @@ class Child < ApplicationRecord
         chores << chore
       end
     }
-    return chores
+    return chores.sort_by(&:title)
   end
   def thursday_chores
     childChores = ChildChore.where(child_id: self.id)
@@ -60,7 +60,7 @@ class Child < ApplicationRecord
         chores << chore
       end
     }
-    return chores
+    return chores.sort_by(&:title)
   end
   def friday_chores
     childChores = ChildChore.where(child_id: self.id)
@@ -71,7 +71,7 @@ class Child < ApplicationRecord
         chores << chore
       end
     }
-    return chores
+    return chores.sort_by(&:title)
   end
   def saturday_chores
     childChores = ChildChore.where(child_id: self.id)
@@ -82,7 +82,7 @@ class Child < ApplicationRecord
         chores << chore
       end
     }
-    return chores
+    return chores.sort_by(&:title)
   end
   def sunday_chores
     childChores = ChildChore.where(child_id: self.id)
@@ -93,7 +93,7 @@ class Child < ApplicationRecord
         chores << chore
       end
     }
-    return chores
+    return chores.sort_by(&:title)
   end
 
   def chores_done_weekly
@@ -105,6 +105,6 @@ class Child < ApplicationRecord
         chores << chore
       end
     }
-    return chores
+    return chores.sort_by(&:title)
   end
 end
