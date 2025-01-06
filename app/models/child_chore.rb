@@ -11,6 +11,9 @@ class ChildChore < ApplicationRecord
         chore.sunday && !self.done_sun)
       done = false
     end
+    if chore.one_timer && (done_mon || done_tue || done_wed || done_thu || done_fri || done_sat || done_sun)
+      done = true
+    end
     return done
   end
 end
