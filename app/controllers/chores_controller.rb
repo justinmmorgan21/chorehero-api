@@ -46,4 +46,14 @@ class ChoresController < ApplicationController
       render json: { error: "Chore not found" }, status: :not_found
     end
   end
+
+  def show
+    parent_user = current_parent_user
+    if parent_user
+      @chore = Chore.find_by(id: params[:id])
+      render :show
+    else
+      render json: { error: "no user signed in" }, status: :bad_request
+    end
+  end
 end

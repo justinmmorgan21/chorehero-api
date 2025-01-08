@@ -19,7 +19,7 @@ class Child < ApplicationRecord
   end
 
   def monday_chores
-    childChores = ChildChore.where(child_id: self.id)
+    childChores = ChildChore.where(child_id: self.id, active: true)
     chores = []
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
@@ -30,7 +30,7 @@ class Child < ApplicationRecord
     return chores.sort_by(&:title)
   end
   def tuesday_chores
-    childChores = ChildChore.where(child_id: self.id)
+    childChores = ChildChore.where(child_id: self.id, active: true)
     chores = []
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
@@ -41,7 +41,7 @@ class Child < ApplicationRecord
     return chores.sort_by(&:title)
   end
   def wednesday_chores
-    childChores = ChildChore.where(child_id: self.id)
+    childChores = ChildChore.where(child_id: self.id, active: true)
     chores = []
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
@@ -52,7 +52,7 @@ class Child < ApplicationRecord
     return chores.sort_by(&:title)
   end
   def thursday_chores
-    childChores = ChildChore.where(child_id: self.id)
+    childChores = ChildChore.where(child_id: self.id, active: true)
     chores = []
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
@@ -63,7 +63,7 @@ class Child < ApplicationRecord
     return chores.sort_by(&:title)
   end
   def friday_chores
-    childChores = ChildChore.where(child_id: self.id)
+    childChores = ChildChore.where(child_id: self.id, active: true)
     chores = []
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
@@ -74,7 +74,7 @@ class Child < ApplicationRecord
     return chores.sort_by(&:title)
   end
   def saturday_chores
-    childChores = ChildChore.where(child_id: self.id)
+    childChores = ChildChore.where(child_id: self.id, active: true)
     chores = []
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
@@ -85,7 +85,7 @@ class Child < ApplicationRecord
     return chores.sort_by(&:title)
   end
   def sunday_chores
-    childChores = ChildChore.where(child_id: self.id)
+    childChores = ChildChore.where(child_id: self.id, active: true)
     chores = []
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
@@ -97,7 +97,7 @@ class Child < ApplicationRecord
   end
 
   def chores_done_weekly
-    childChores = ChildChore.where(child_id: self.id)
+    childChores = ChildChore.where(child_id: self.id, active: true)
     chores = []
     childChores.each { |childChore|
       chore = Chore.find_by(id: childChore.chore_id)
@@ -106,5 +106,22 @@ class Child < ApplicationRecord
       end
     }
     return chores.sort_by(&:title)
+  end
+
+  def active_chores
+    childChores = ChildChore.where(child_id: self.id, active: true)
+    chores = []
+    childChores.each { |childChore|
+      chores << Chore.find_by(id: childChore.chore_id)
+    }
+    return chores.sort_by(&:title)
+  end
+  def inactive_child_chores
+    childChores = ChildChore.where(child_id: self.id, active: false)
+    chores = []
+    childChores.each { |childChore|
+      chores << Chore.find_by(id: childChore.chore_id)
+    }
+    return 
   end
 end

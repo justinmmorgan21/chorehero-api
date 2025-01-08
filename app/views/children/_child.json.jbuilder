@@ -16,3 +16,5 @@ json.friday_chores child.friday_chores
 json.saturday_chores child.saturday_chores
 json.sunday_chores child.sunday_chores
 json.chores_done_weekly child.chores_done_weekly
+json.active_chores child.active_chores
+json.inactive_chores child.inactive_chores
