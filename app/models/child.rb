@@ -116,12 +116,12 @@ class Child < ApplicationRecord
     }
     return chores.sort_by(&:title)
   end
-  def inactive_child_chores
+  def inactive_chores
     childChores = ChildChore.where(child_id: self.id, active: false)
     chores = []
     childChores.each { |childChore|
       chores << Chore.find_by(id: childChore.chore_id)
     }
-    return 
+    return chores.sort_by(&:title)
   end
 end

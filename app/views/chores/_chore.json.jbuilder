@@ -11,3 +11,4 @@ json.saturday chore.saturday
 json.sunday chore.sunday
 json.one_timer chore.one_timer
 json.points_awarded chore.points_awarded
+json.children chore.children

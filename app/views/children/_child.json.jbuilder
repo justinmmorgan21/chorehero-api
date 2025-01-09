@@ -16,5 +16,20 @@ json.friday_chores child.friday_chores
 json.saturday_chores child.saturday_chores
 json.sunday_chores child.sunday_chores
 json.chores_done_weekly child.chores_done_weekly
-json.active_chores child.active_chores
+json.active_chores child.active_chores do |chore|
+  json.id chore.id
+  json.parent_id chore.parent_id
+  json.title chore.title
+  json.description chore.description
+  json.monday chore.monday
+  json.tuesday chore.tuesday
+  json.wednesday chore.wednesday
+  json.thursday chore.thursday
+  json.friday chore.friday
+  json.saturday chore.saturday
+  json.sunday chore.sunday
+  json.one_timer chore.one_timer
+  json.points_awarded chore.points_awarded
+  json.children chore.children
+end
 json.inactive_chores child.inactive_chores
