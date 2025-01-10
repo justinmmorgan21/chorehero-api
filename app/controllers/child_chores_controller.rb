@@ -1,6 +1,6 @@
 class ChildChoresController < ApplicationController
   def create
-    @childChore = ChildChore.new(
+    @child_chore = ChildChore.new(
       child_id: params[:child_id],
       chore_id: params[:chore_id],
       active: true,
@@ -15,10 +15,10 @@ class ChildChoresController < ApplicationController
       done_sun: false,
       done_weekly: false,
     )
-    if @childChore.save
+    if @child_chore.save!
       render :show, status: :created
     else
-      render json: { errors: @childChore.errors.full_messages }, status: :bad_request
+      render json: { errors: @child_chore.errors.full_messages }, status: :bad_request
     end
   end
 

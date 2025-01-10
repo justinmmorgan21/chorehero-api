@@ -31,5 +31,6 @@ json.active_chores child.active_chores do |chore|
   json.one_timer chore.one_timer
   json.points_awarded chore.points_awarded
   json.children chore.children
+  json.child_chores chore.child_chores
 end
 json.inactive_chores child.inactive_chores
