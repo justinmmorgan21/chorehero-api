@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/chores" => "chores#index"
   get "/chores/:id" => "chores#show"
   patch "/chores/:id" => "chores#update"
+  delete "/chores/:id" => "chores#destroy"
 
   post "/sessions" => "sessions#create"
 

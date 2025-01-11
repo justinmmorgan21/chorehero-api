@@ -56,4 +56,10 @@ class ChoresController < ApplicationController
       render json: { error: "no user signed in" }, status: :bad_request
     end
   end
+
+  def destroy
+    @chore = Chore.find_by(id: params[:id])
+    @chore.destroy
+    render json: {message: "#{@chore.title} deleted."}
+  end
 end
