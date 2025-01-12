@@ -30,4 +30,7 @@ Rails.application.routes.draw do
   get "/child_chores" => "child_chores#index"
   get "/child_chores/:child_id/:chore_id" => "child_chores#show"
   patch "/child_chores/:child_id/:chore_id" => "child_chores#update"
+
+  post "/rewards" => "rewards#create"
+  get "/rewards" => "rewards#index"
 end
