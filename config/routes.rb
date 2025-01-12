@@ -33,5 +33,6 @@ Rails.application.routes.draw do
 
   post "/rewards" => "rewards#create"
   get "/rewards" => "rewards#index"
+  patch "/rewards/:id" => "rewards#update"
   get "/rewards_test" => "rewards#test"
 end
