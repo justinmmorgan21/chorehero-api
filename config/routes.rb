@@ -33,4 +33,5 @@ Rails.application.routes.draw do
 
   post "/rewards" => "rewards#create"
   get "/rewards" => "rewards#index"
+  get "/rewards_test" => "rewards#test"
 end

@@ -18,4 +18,9 @@ class RewardsController < ApplicationController
     @rewards = Reward.all
     render :index
   end
+
+  def test
+    reward = Reward.find(1)
+    reward.reward_groups
+  end
 end
