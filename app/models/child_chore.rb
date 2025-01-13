@@ -2,7 +2,7 @@ class ChildChore < ApplicationRecord
   belongs_to :child
   belongs_to :chore
 
-  def done_weekly
+  def doneWeekly
     chore = Chore.find_by(id: self.chore_id)
     done = true
     if (chore.monday && !self.done_mon  || chore.tuesday && !self.done_tue ||
