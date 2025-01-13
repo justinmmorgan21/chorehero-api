@@ -20,7 +20,11 @@ class ParentsController < ApplicationController
 
   def show
     @parent = Parent.find_by(id: params[:id])
-    render :show
+    if @parent
+      render :show
+    else
+      render json: { errors: "no parent with that id" }, status: :bad_request
+    end
   end
 
   def current
