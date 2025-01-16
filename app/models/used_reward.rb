@@ -1,0 +1,2 @@
+class UsedReward < ApplicationRecord
+end

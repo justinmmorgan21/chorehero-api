@@ -1,0 +1,2 @@
+module UsedRewardsHelper
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_12_060543) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_16_054256) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,6 +75,14 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_12_060543) do
     t.integer "points_cost"
     t.boolean "active"
     t.boolean "kid_requested"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "used_rewards", force: :cascade do |t|
+    t.integer "child_id"
+    t.integer "reward_id"
+    t.date "date_approved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

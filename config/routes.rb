@@ -35,4 +35,8 @@ Rails.application.routes.draw do
   get "/rewards" => "rewards#index"
   patch "/rewards/:id" => "rewards#update"
   get "/rewards_test" => "rewards#test"
+
+  post "/used_rewards" => "used_rewards#create"
+  get "/used_rewards" => "used_rewards#index"
+  patch "/used_rewards/:id" => "used_rewards#update"
 end
