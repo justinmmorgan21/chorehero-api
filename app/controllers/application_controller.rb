@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
           true,
           { algorithm: "HS256" }
         )
+        decoded_token[0]["role"] == "parent" &&
         Parent.find_by(id: decoded_token[0]["user_id"])
       rescue JWT::ExpiredSignature
         nil
@@ -30,6 +31,7 @@ class ApplicationController < ActionController::Base
           true,
           { algorithm: "HS256" }
         )
+        decoded_token[0]["role"] == "child" &&
         Child.find_by(id: decoded_token[0]["user_id"])
       rescue JWT::ExpiredSignature
         nil

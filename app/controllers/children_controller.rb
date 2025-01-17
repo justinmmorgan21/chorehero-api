@@ -47,4 +47,13 @@ class ChildrenController < ApplicationController
       render json: { error: "Child not found" }, status: :not_found
     end
   end
+
+  def current
+    if current_child_user
+      @child = Child.find_by(id: current_child_user.id)
+      render :show
+    else
+      render json: { errors: "no current child signed in" }, status: :bad_request
+    end
+  end
 end
