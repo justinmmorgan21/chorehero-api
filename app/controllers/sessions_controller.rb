@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    user = Parent.find_by(username: params[:username]) || Child.find_by(username: params[:username])
+    user = Parent.find_by(username: params[:username]) || Child.find_by(username: params[:username], parent_id: Parent.find_by(username: params[:parent_username]).id)
     if user && user.authenticate(params[:password])
       jwt = JWT.encode(
         {
