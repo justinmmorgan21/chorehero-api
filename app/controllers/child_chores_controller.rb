@@ -44,7 +44,8 @@ class ChildChoresController < ApplicationController
       @child_chore[:done_weekly] = @child_chore.doneWeekly
 
       if @child_chore.save!
-        render :show
+        @child = Child.find_by(id: @child_chore.child_id)
+        render :update
       else
         render json: { error: @child_chore.errors.full_messages }, status: :unprocessable_entity
       end
