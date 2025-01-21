@@ -34,3 +34,10 @@ json.active_chores child.active_chores do |chore|
   json.child_chores chore.child_chores
 end
 json.inactive_chores child.inactive_chores
+json.used_rewards child.used_rewards do |used_reward|
+  json.id used_reward.id
+  json.child_id used_reward.child_id
+  json.reward_id used_reward.reward_id
+  json.date_approved used_reward.date_approved
+  json.reward used_reward.reward
+end

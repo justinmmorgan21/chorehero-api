@@ -6,6 +6,7 @@ class Child < ApplicationRecord
   belongs_to :parent
   has_many :child_chores
   has_many :chores, through: :child_chores
+  has_many :used_rewards
 
   def age
     birthdate = self.birthdate
