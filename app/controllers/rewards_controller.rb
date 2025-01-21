@@ -23,7 +23,7 @@ class RewardsController < ApplicationController
   def update
     @reward = Reward.find_by(id: params[:id])
     if @reward
-      @reward.assign_attributes(params.permit(:parent_id, :title, :points_cost, :active).compact_blank)
+      @reward.assign_attributes(params.permit(:parent_id, :title, :points_cost, :active, :kid_requested).compact_blank)
       
       if @reward.save
         render json: { message: "#{@reward.title} - #{@reward.points_cost}" }
@@ -32,6 +32,16 @@ class RewardsController < ApplicationController
       end
     else
       render json: { error: "Reward not found" }, status: :not_found
+    end
+  end
+
+  def destroy
+    @reward = Reward.find_by(id: params[:id])
+    if @reward.destroy()
+      render json: { message: "Reward destroy successful"}
+    else
+      render json: { error: @reward.errors.full_messages },
+      status: :bad_request
     end
   end
 end

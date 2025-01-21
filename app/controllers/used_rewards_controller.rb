@@ -29,4 +29,15 @@ class UsedRewardsController < ApplicationController
       status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @used_reward = UsedReward.find_by(id: params[:id])
+    if @used_reward.destroy()
+      @used_rewards = UsedReward.all
+      render :index
+    else
+      render json: { error: @used_reward.errors.full_messages },
+      status: :bad_request
+    end
+  end
 end
