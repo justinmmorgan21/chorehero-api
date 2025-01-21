@@ -1,10 +1,10 @@
 class RewardsController < ApplicationController
   def create
     @reward = Reward.new(
-      parent_id: current_parent_user.id,
+      parent_id: current_parent_user && current_parent_user.id || current_child_user.parent_id,
       title: params[:title],
       points_cost: params[:points_cost],
-      active: true,
+      active: params[:active],
       kid_requested: params[:kid_requested]
     )
     if @reward.save
