@@ -13,8 +13,13 @@ class UsedRewardsController < ApplicationController
   end
 
   def index
-    @used_rewards = UsedReward.all
-    render :index
+    if current_child_user
+      @used_rewards = UsedReward.where(child_id: current_child_user)
+      render :index
+    elsif current_parent_user
+      @used_rewards = UsedReward.currentParentUsedRewards(current_parent_user)
+      render :index
+    end
   end
 
   def update

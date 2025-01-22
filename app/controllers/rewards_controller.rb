@@ -20,6 +20,11 @@ class RewardsController < ApplicationController
     render :index
   end
 
+  def show
+    @reward = Reward.find_by(id: params[:id])
+    render :show
+  end
+
   def update
     @reward = Reward.find_by(id: params[:id])
     if @reward

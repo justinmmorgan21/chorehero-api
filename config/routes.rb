@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   post "/rewards" => "rewards#create"
   get "/rewards" => "rewards#index"
   patch "/rewards/:id" => "rewards#update"
-  get "/rewards_test" => "rewards#test"
+  get "/rewards/:id" => "rewards#show"
   delete "/rewards/:id" => "rewards#destroy"
 
   post "/used_rewards" => "used_rewards#create"
