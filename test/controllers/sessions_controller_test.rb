@@ -7,6 +7,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response 201
 
     data = JSON.parse(response.body)
-    assert_equal ["jwt", "username", "user_id"], data.keys
+    assert_equal ["jwt", "username", "user_id", "role"], data.keys
   end
 end

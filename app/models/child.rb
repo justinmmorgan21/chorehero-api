@@ -15,7 +15,6 @@ class Child < ApplicationRecord
     if birthdate.month > today.month || (birthdate.month == today.month && birthdate.day > today.day)
       child_age -= 1
     end
-    puts child_age
     return child_age
   end
 

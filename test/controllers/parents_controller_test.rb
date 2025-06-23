@@ -21,6 +21,6 @@ class ParentsControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "username", "email"], data.keys
+    assert_equal ["id", "username", "email", "children", "rewards"], data.keys
   end
 end
