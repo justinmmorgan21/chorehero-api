@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: chorehero_api_production
-  username: chorehero_api
-  password: <%= ENV["CHOREHERO_API_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
