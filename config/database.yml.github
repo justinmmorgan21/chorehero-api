@@ -1,8 +1,16 @@
-test:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: chorehero_api_test
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   password: postgres
   host: localhost
+
+development:
+  <<: *default
+  database: chorehero_api_development
+
+test:
+  <<: *default
+  database: chorehero_api_test
 
